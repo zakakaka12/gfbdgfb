@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Книжный магазин</title>
+  <style>
+    body{font-family: Arial, sans-serif; padding:20px}
+    .buttons button{margin:4px;padding:8px 12px}
+    .book{border:1px solid #ddd;padding:8px;margin:6px 0;border-radius:6px}
+    form.inline{display:inline-block;margin-right:10px}
+  </style>
+</head>
+<body>
+  <h1>Книжный магазин</h1>
+  <div class="buttons">
+    <button onclick="window.location.href='/add-book'">Добавить книгу</button>
+    <button onclick="window.location.href='/add-author'">Добавить автора</button>
+    <button onclick="window.location.href='/add-genre'">Добавить жанр</button>
+    <button onclick="window.location.href='/add-publisher'">Добавить издательство</button>
+  </div>
+
+  <h2>Фильтр по теме</h2>
+  <form method="GET" action="/" class="inline">
+    <input name="theme" placeholder="Введите тему" value="<%= theme || '' %>"/>
+    <button type="submit">Применить</button>
+    <button type="button" onclick="window.location.href='/'">Сбросить</button>
+  </form>
+
+  <h2>Книги</h2>
+  <% if (books.length===0) { %>
+    <p>Книг не найдено.</p>
+  <% } else { %>
+    <% books.forEach(b => { %>
+      <div class="book">
+        <strong><%= b.Title %></strong> — тема: <%= b.Theme || '-' %><br/>
+        автор: <%= b.Author ? b.Author.Name : '-' %> | жанр: <%= b.Genre ? b.Genre.Name : '-' %> | издательство: <%= b.Publisher ? b.Publisher.Name : '-' %>
+      </div>
+    <% }) %>
+  <% } %>
+
+</body>
+</html>

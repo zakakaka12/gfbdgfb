@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Добавить книгу</title></head>
+<body>
+  <h1>Добавить книгу</h1>
+  <form action="/add-book" method="POST">
+    <div><label>Название: <input name="title" required></label></div>
+    <div><label>Тема: <input name="theme"></label></div>
+    <div><label>Автор:
+      <select name="authorId">
+        <option value="">— выбрать —</option>
+        <% authors.forEach(a=>{ %><option value="<%= a.AuthorID %>"><%= a.Name %></option><% }) %>
+      </select>
+    </label></div>
+    <div><label>Жанр:
+      <select name="genreId">
+        <option value="">— выбрать —</option>
+        <% genres.forEach(g=>{ %><option value="<%= g.GenreID %>"><%= g.Name %></option><% }) %>
+      </select>
+    </label></div>
+    <div><label>Издательство:
+      <select name="publisherId">
+        <option value="">— выбрать —</option>
+        <% publishers.forEach(p=>{ %><option value="<%= p.PublisherID %>"><%= p.Name %></option><% }) %>
+      </select>
+    </label></div>
+    <div><button type="submit">Сохранить</button> <button type="button" onclick="window.location.href='/'">Отмена</button></div>
+  </form>
+</body>
+</html>
