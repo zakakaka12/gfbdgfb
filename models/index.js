@@ -3,7 +3,7 @@ const Author = require('./Author');
 const Genre = require('./Genre');
 const Publisher = require('./Publisher');
 
-// Associations
+// Ассоциации
 Author.hasMany(Book, { foreignKey: 'AuthorId' });
 Book.belongsTo(Author, { foreignKey: 'AuthorId' });
 

@@ -2,9 +2,18 @@
 <html lang="ru">
 <head><meta charset="utf-8"><title>Добавить книгу</title></head>
 <body>
+
+  <style>
+    .all-made{ display: flex; flex-direction: column; gap: 20px;}
+    label{color: rgb(0, 0, 0); font-weight: 700; font-size: 18px;}
+    body{background-color: rgb(255, 255, 255);}
+    input{border-radius: 20px; background-color: rgb(255, 60, 60); border: none; padding: 5px; color: white;}
+    select{border-radius: 20px; background-color: transparent; border: solid 1px red; padding: 0.5rem;}
+    button{background-color: black; color: white; border-radius: 10px; padding: 0.75rem; cursor: pointer;}
+  </style>
   <h1>Добавить книгу</h1>
-  <form action="/add-book" method="POST">
-    <div><label>Название: <input name="title" required></label></div>
+  <form class="all-made" action="/add-book" method="POST">
+    <div class="asas"><label>Название: <input name="title" required></label></div>
     <div><label>Тема: <input name="theme"></label></div>
     <div><label>Автор:
       <select name="authorId">

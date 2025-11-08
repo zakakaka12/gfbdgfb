@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Routes
+// Маршруты
 app.get('/', async (req, res) => {
   const theme = req.query.theme || null;
   const where = theme ? { Theme: theme } : {};
@@ -59,7 +59,7 @@ app.post('/add-publisher', async (req, res) => {
   res.redirect('/');
 });
 
-// sync and start
+// синхронизация и запуск
 sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 }).catch(err => {
